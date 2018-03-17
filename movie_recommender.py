@@ -4,11 +4,16 @@ from lightfm.datasets import fetch_movielens
 from lightfm import LightFM
 
 # fetch the data
-data = fetch_movielens(min_rating=4.5)
+data = fetch_movielens(min_rating=3)
 
 #print training data
 print(repr(data["train"]))
 print(repr(data["test"]))
+
+#testing
+print(repr(data))
+
+
 
 # using WARP to mmisimise the error - weighted approximated rank pairwise - content absed + collabrative -> hybrid system
 model = LightFM(loss="warp")
@@ -47,4 +52,4 @@ def movie_recommender(model, data, user_ids):
 			print("    %s" % x)
 
 # testing out the movie recommender with some user ids
-movie_recommender(model, data, [4, 32, 220])			
+movie_recommender(model, data, [87, 6, 220, 322, 78])			
